@@ -46,18 +46,18 @@ img {
   border: 0;
 }
 
-/* FIXED: background */
+/* FIX: background composition */
 .hero {
   position: relative;
   width: 100%;
-  min-height: var(--hero-h);
+  min-height: 794px;
   overflow: hidden;
   background-image:
-    linear-gradient(180deg, #d7ebf8 0%, #e5f1f8 54%, rgba(237, 245, 250, 0) 76%),
+    linear-gradient(180deg, #d7ebf8 0%, #e5f1f8 45%, rgba(237, 245, 250, 0) 65%),
     url("../assets/grass.png");
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
-  background-position: center top, center bottom;
+  background-position: center top, bottom center;
 }
 
 /* REMOVED: separate grass structure */
@@ -180,25 +180,26 @@ img {
   background: linear-gradient(180deg, #032e15 0%, #016630 100%);
 }
 
-/* FIXED: layout */
+/* FIX: hero centering */
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   height: 100%;
-  padding-top: 6.75rem;
+  padding-right: 20px;
 }
 
-/* FIXED: content positioning */
+/* FIX: hero centering */
 .hero__content {
   position: relative;
   width: 100%;
-  max-width: var(--content-w);
-  margin-left: var(--content-left);
+  max-width: 692px;
+  margin-left: 74px;
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
+  gap: 36px;
   z-index: 2;
+  transform: translateY(16px);
 }
 
 /* FIXED: badge specs */
@@ -245,11 +246,11 @@ img {
   font-weight: 700;
 }
 
-/* FIXED: stats layout */
+/* FIX: spacing */
 .hero__stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, max-content));
-  column-gap: 1.5rem;
+  column-gap: 32px;
   align-items: end;
 }
 
@@ -278,28 +279,28 @@ img {
   color: #0d542b;
 }
 
-/* FIXED: CTA button specs */
+/* FIX: CTA button specs */
 .btn--secondary {
   width: 11.5829rem;
   height: 3rem;
   padding: 0.75rem 1rem;
   border-radius: 6.25rem;
   background: linear-gradient(180deg, #032e15 0%, #016630 100%);
-  box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* FIX: remove visual noise */
   color: #ffffff;
   font-size: 1.1375rem;
   font-weight: 500;
   line-height: 1.5rem;
+  margin-top: 24px; /* FIX: spacing */
 }
 
-/* FIXED: image positioning */
+/* FIX: image anchoring */
 .hero__image-wrap {
   position: relative;
   justify-self: end;
-  align-self: center;
-  margin-right: 4.625rem;
-  transform: translateY(-1.5rem);
-  width: 19rem;
+  align-self: end;
+  margin-right: 0;
+  width: 26.6rem;
   background: transparent;
   border: 0;
   border-radius: 0;
