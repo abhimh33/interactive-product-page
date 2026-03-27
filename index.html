@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Product Page</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__shell">
+      <header class="hero__nav">
+        <div class="nav__left">
+          <a class="logo" href="#">GTG</a>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav id="primary-nav" class="nav" data-nav>
+          <ul class="nav__list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Fragrances</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__right">
+          <button class="icon-button" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.71.71l.27.28v.79l5 5 1.5-1.5-5-5zM6.5 10a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+            </svg>
+          </button>
+          <a class="btn btn--primary" href="#">Shop Now</a>
+        </div>
+      </header>
+
+      <div class="hero__grid">
+        <div class="hero__content">
+          <span class="hero__badge">Awarded the best perfume in the world</span>
+          <h1 class="hero__title">Live your best life.</h1>
+          <div class="hero__stats">
+            <div class="stat-block">
+              <span class="stat-block__value">10x</span>
+              <span class="stat-block__label">power</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-block__value">9</span>
+              <span class="stat-block__label">ingredients</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-block__value">20K+</span>
+              <span class="stat-block__label">happy customers</span>
+            </div>
+          </div>
+          <a class="btn btn--secondary" href="#">Shop Now</a>
+        </div>
+
+        <div class="hero__image-wrap">
+          <img src="assets/perfume.png" alt="Perfume bottle" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
