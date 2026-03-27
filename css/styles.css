@@ -46,7 +46,7 @@ img {
   border: 0;
 }
 
-/* FIX: background ratio */
+/* FIX: single background composition */
 .hero {
   position: relative;
   width: 100%;
@@ -55,11 +55,12 @@ img {
   background-image:
     linear-gradient(
       to bottom,
-      #dfeef8 0%,
-      #dfeef8 55%,
-      rgba(255,255,255,0) 65%
+      rgba(223,238,248,0.95) 0%,
+      rgba(223,238,248,0.85) 40%,
+      rgba(223,238,248,0.3) 60%,
+      rgba(223,238,248,0) 75%
     ),
-    url("../assets/grass.png");
+    url("../assets/perfume.png");
   background-size: cover;
   background-position: center bottom;
 }
@@ -194,7 +195,7 @@ img {
   padding-right: 20px;
 }
 
-/* FIX: content position */
+/* FIX: overlay for readability */
 .hero__content {
   position: relative;
   width: 100%;
@@ -204,7 +205,7 @@ img {
   flex-direction: column;
   gap: 36px;
   z-index: 2;
-  margin-top: -40px;
+  margin-top: 160px;
 }
 
 /* FIXED: badge specs */
@@ -299,20 +300,9 @@ img {
   margin-top: 24px; /* FIX: spacing */
 }
 
-/* FIX: image grounding */
+/* FIX: remove foreground image */
 .hero__image-wrap {
-  display: block;
-  position: absolute;
-  right: 80px;
-  bottom: 0;
-  width: 550px;
-  z-index: 2;
-}
-
-.hero__image-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
+  display: none;
 }
 
 /* FIXED: responsive tablet */
