@@ -50,21 +50,14 @@ img {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 794px;
+  height: 794px; /* match Figma frame */
   overflow: hidden;
 
-  background-image:
-    linear-gradient(
-      to bottom,
-      #dfeef8 0%,
-      #dfeef8 55%,
-      rgba(223,238,248,0.9) 65%,
-      rgba(223,238,248,0.4) 72%,
-      rgba(223,238,248,0) 80%
-    ),
-    url("../assets/perfume.png");
-
+  background-image: url("../assets/perfume.png");
   background-size: cover;
+  background-repeat: no-repeat;
+
+  /* CRITICAL LINE */
   background-position: center bottom;
 }
 
@@ -200,15 +193,15 @@ img {
 
 /* FIX: content position */
 .hero__content {
-  max-width: 692px;
-  margin-left: 74px;
-  margin-top: 140px;
   position: relative;
   width: 100%;
+  max-width: 692px;
+  margin-left: 74px;
   display: flex;
   flex-direction: column;
   gap: 36px;
   z-index: 2;
+  margin-top: 120px;
 }
 
 /* FIXED: badge specs */
@@ -452,3 +445,6 @@ img {
     transform: translateY(0);
   }
 }
+
+
+
