@@ -46,14 +46,20 @@ img {
   border: 0;
 }
 
-/* FIX: background composition */
+/* FIX: background ratio */
 .hero {
   position: relative;
   width: 100%;
   min-height: 794px;
   overflow: hidden;
-  background-image: url("../assets/perfume.png");
-  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(
+      to bottom,
+      #dfeef8 0%,
+      #dfeef8 55%,
+      rgba(255,255,255,0) 65%
+    ),
+    url("../assets/perfume.png");
   background-size: cover;
   background-position: center bottom;
 }
@@ -188,7 +194,7 @@ img {
   padding-right: 20px;
 }
 
-/* FIX: alignment */
+/* FIX: content position */
 .hero__content {
   position: relative;
   width: 100%;
@@ -198,7 +204,7 @@ img {
   flex-direction: column;
   gap: 36px;
   z-index: 2;
-  margin-top: 40px;
+  margin-top: -40px;
 }
 
 /* FIXED: badge specs */
@@ -265,7 +271,10 @@ img {
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
-  color: #4f7d6b;
+  background: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .stat-block__label {
@@ -290,9 +299,13 @@ img {
   margin-top: 24px; /* FIX: spacing */
 }
 
-/* FIX: remove boxed image */
+/* FIX: image grounding */
 .hero__image-wrap {
-  display: none;
+  display: block;
+  position: absolute;
+  right: 80px;
+  bottom: 20px;
+  width: 460px;
 }
 
 .hero__image-wrap img {
