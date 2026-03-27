@@ -265,10 +265,7 @@ img {
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
-  background: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #4f7d6b;
 }
 
 .stat-block__label {
