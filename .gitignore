@@ -1,0 +1,7 @@
+.venv/
+.vscode/
+.kiro/
+
+# OS noise
+.DS_Store
+Thumbs.db

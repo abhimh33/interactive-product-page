@@ -1,9 +1,24 @@
-// Simple scaffolding for interactions
+// Page interactions: nav, product gallery, subscription form, stats, collection accordion
+//
+// Gallery + bottles: paths align with Figma exports in /assets (Original / Lily / Rose frames).
 
-const galleryImages = [
-  { src: "assets/hero-1.jpg", thumb: "assets/hero-1-thumb.jpg", alt: "Product angle 1" },
-  { src: "assets/hero-2.jpg", thumb: "assets/hero-2-thumb.jpg", alt: "Product angle 2" },
-  { src: "assets/hero-3.jpg", thumb: "assets/hero-3-thumb.jpg", alt: "Product angle 3" },
+const PRODUCT_GALLERY_SLIDES = [
+  { src: 'assets/a206a3992f8dd3b83e58b96d68af3ba37d448aff.png', alt: 'GTG Original — grey background' },
+  { src: 'assets/Group%201000004093.png', alt: 'GTG fragrance lifestyle' },
+  { src: 'assets/Group%201000004283.png', alt: 'GTG perfumes lifestyle' },
+  { src: 'assets/pexels-cottonbro-4659793.png', alt: 'GTG lifestyle' },
+];
+
+/** Eight thumbnails (4×2), each mapped to a slide index 0–3 — all from /assets */
+const PRODUCT_GALLERY_THUMBS = [
+  { src: 'assets/a206a3992f8dd3b83e58b96d68af3ba37d448aff.png', slide: 0 },
+  { src: 'assets/Group%201000003958.png', slide: 0 },
+  { src: 'assets/Group%201000004093.png', slide: 1 },
+  { src: 'assets/Group%201000004012.png', slide: 1 },
+  { src: 'assets/Group%201000004283.png', slide: 2 },
+  { src: 'assets/Group%201000003968.png', slide: 2 },
+  { src: 'assets/pexels-cottonbro-4659793.png', slide: 3 },
+  { src: 'assets/Group%201000003967.png', slide: 3 },
 ];
 
 function initNav() {
@@ -16,98 +31,137 @@ function initNav() {
   });
 }
 
-function initGallery() {
+function initProductGallery() {
   const imgEl = document.querySelector('[data-gallery-image]');
   const dots = document.querySelector('[data-gallery-dots]');
-  const thumbs = document.querySelector('[data-gallery-thumbs]');
+  const thumbsRoot = document.querySelector('[data-gallery-thumbs]');
   const prev = document.querySelector('[data-gallery-prev]');
   const next = document.querySelector('[data-gallery-next]');
-  if (!imgEl || !dots || !thumbs || !prev || !next) return;
+  if (!imgEl || !dots || !thumbsRoot || !prev || !next) return;
 
-  let index = 0;
+  const slides = PRODUCT_GALLERY_SLIDES;
+  const thumbs = PRODUCT_GALLERY_THUMBS;
+  let slideIndex = 0;
+
+  function syncThumbsActive() {
+    thumbsRoot.querySelectorAll('.product-thumb').forEach((btn, i) => {
+      btn.classList.toggle('is-active', thumbs[i].slide === slideIndex);
+    });
+  }
 
   function render() {
-    const item = galleryImages[index];
+    const item = slides[slideIndex];
     imgEl.src = item.src;
     imgEl.alt = item.alt;
     dots.querySelectorAll('button').forEach((btn, i) => {
-      btn.classList.toggle('is-active', i === index);
+      btn.classList.toggle('is-active', i === slideIndex);
     });
-    thumbs.querySelectorAll('.thumb').forEach((btn, i) => {
-      btn.classList.toggle('is-active', i === index);
-    });
+    syncThumbsActive();
   }
 
-  function goTo(i) {
-    index = (i + galleryImages.length) % galleryImages.length;
+  function goToSlide(i) {
+    slideIndex = (i + slides.length) % slides.length;
     render();
   }
 
-  dots.innerHTML = galleryImages
-    .map((_, i) => `<button aria-label="Show image ${i + 1}"></button>`)
+  dots.innerHTML = slides
+    .map(
+      (_, i) =>
+        `<button type="button" class="${i === 0 ? 'is-active' : ''}" aria-label="Slide ${i + 1}" data-slide="${i}"></button>`,
+    )
     .join('');
 
-  thumbs.innerHTML = galleryImages
+  dots.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-slide]');
+    if (!btn) return;
+    const i = Number(btn.getAttribute('data-slide'));
+    if (!Number.isNaN(i)) goToSlide(i);
+  });
+
+  thumbsRoot.innerHTML = thumbs
     .map(
-      (item, i) => `
-        <button class="thumb${i === 0 ? ' is-active' : ''}" aria-label="Thumb ${i + 1}">
-          <img src="${item.thumb}" alt="${item.alt}" loading="lazy" />
+      (t, i) => `
+        <button type="button" class="product-thumb${t.slide === 0 ? ' is-active' : ''}" data-thumb-index="${i}" aria-label="Thumbnail ${i + 1}">
+          <img src="${t.src}" alt="" loading="lazy" />
         </button>
       `,
     )
     .join('');
 
-  dots.addEventListener('click', (e) => {
-    if (e.target instanceof HTMLButtonElement) {
-      const i = Array.from(dots.children).indexOf(e.target);
-      if (i >= 0) goTo(i);
-    }
+  thumbsRoot.addEventListener('click', (e) => {
+    const btn = e.target.closest('.product-thumb');
+    if (!btn) return;
+    const i = Number(btn.getAttribute('data-thumb-index'));
+    if (Number.isNaN(i)) return;
+    goToSlide(thumbs[i].slide);
   });
 
-  thumbs.addEventListener('click', (e) => {
-    if (e.target instanceof HTMLImageElement && e.target.parentElement instanceof HTMLButtonElement) {
-      const btn = e.target.parentElement;
-      const i = Array.from(thumbs.children).indexOf(btn);
-      if (i >= 0) goTo(i);
-    }
-    if (e.target instanceof HTMLButtonElement) {
-      const i = Array.from(thumbs.children).indexOf(e.target);
-      if (i >= 0) goTo(i);
-    }
-  });
-
-  prev.addEventListener('click', () => goTo(index - 1));
-  next.addEventListener('click', () => goTo(index + 1));
+  prev.addEventListener('click', () => goToSlide(slideIndex - 1));
+  next.addEventListener('click', () => goToSlide(slideIndex + 1));
 
   render();
 }
 
-function initRadios() {
+function initProductForm() {
   const form = document.querySelector('[data-product-form]');
-  const cartLink = document.querySelector('[data-cart-link]');
-  const accordion = document.querySelector('[data-accordion]');
-  if (!form || !cartLink) return;
+  if (!form) return;
 
-  function updateLink() {
-    const fragrance = form.querySelector('input[name="fragrance"]:checked')?.value;
+  const cartLink = form.querySelector('[data-cart-link]');
+  const panelSingle = form.querySelector('[data-panel="single"]');
+  const panelDouble = form.querySelector('[data-panel="double"]');
+
+  function updateCartHref() {
+    const purchase = form.querySelector('input[name="purchase"]:checked')?.value || 'single-sub';
+    const f1 = form.querySelector('input[name="fragrance"]:checked')?.value;
+    const f2a = form.querySelector('input[name="fragrance1"]:checked')?.value;
+    const f2b = form.querySelector('input[name="fragrance2"]:checked')?.value;
+    if (!cartLink) return;
+    if (purchase === 'double-sub') {
+      const a = f2a || 'original';
+      const b = f2b || 'original';
+      cartLink.href = `#add-to-cart?purchase=${encodeURIComponent(purchase)}&fragrance1=${encodeURIComponent(a)}&fragrance2=${encodeURIComponent(b)}`;
+    } else {
+      const f = f1 || 'original';
+      cartLink.href = `#add-to-cart?purchase=${encodeURIComponent(purchase)}&fragrance=${encodeURIComponent(f)}`;
+    }
+  }
+
+  function syncPanels() {
     const purchase = form.querySelector('input[name="purchase"]:checked')?.value;
-    if (!fragrance || !purchase) return;
-    const url = `#add-to-cart?fragrance=${encodeURIComponent(fragrance)}&purchase=${encodeURIComponent(purchase)}`;
-    cartLink.href = url;
-    if (!accordion) return;
-    accordion.querySelectorAll('.accordion__item').forEach((item) => {
-      const key = item.getAttribute('data-accordion-panel');
-      item.classList.toggle('is-open', key === purchase && (key === 'single-sub' || key === 'double-sub'));
-    });
+    if (panelSingle) panelSingle.hidden = purchase !== 'single-sub';
+    if (panelDouble) panelDouble.hidden = purchase !== 'double-sub';
+
+    const featured = form.querySelector('.product-sub--featured');
+    const compact = form.querySelector('.product-sub--compact');
+    if (featured) featured.classList.toggle('is-collapsed', purchase === 'double-sub');
+    if (compact) compact.classList.toggle('is-expanded', purchase === 'double-sub');
+
+    updateCartHref();
   }
 
   form.addEventListener('change', (e) => {
-    if (e.target instanceof HTMLInputElement && e.target.type === 'radio') {
-      updateLink();
-    }
+    if (e.target instanceof HTMLInputElement) syncPanels();
   });
 
-  updateLink();
+  syncPanels();
+}
+
+function initIncludedPickers() {
+  const root = document.querySelector('[data-product-form]');
+  if (!root) return;
+  const group = root.querySelector('.product-included[role="radiogroup"]');
+  if (!group) return;
+
+  function sync() {
+    group.querySelectorAll('.product-included__option').forEach((opt) => {
+      const input = opt.querySelector('input[type="radio"]');
+      const on = input && input.checked;
+      opt.classList.toggle('product-included__option--active', Boolean(on));
+    });
+  }
+
+  group.addEventListener('change', sync);
+  sync();
 }
 
 function initCountup() {
@@ -200,8 +254,9 @@ function initCollectionAccordion() {
 
 function init() {
   initNav();
-  initGallery();
-  initRadios();
+  initProductGallery();
+  initProductForm();
+  initIncludedPickers();
   initCountup();
   initCollectionAccordion();
 }
