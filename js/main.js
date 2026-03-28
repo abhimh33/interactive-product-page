@@ -144,11 +144,66 @@ function initCountup() {
   els.forEach((el) => observer.observe(el));
 }
 
+function initCollectionAccordion() {
+  const accordion = document.querySelector('[data-collection-accordion]');
+  if (!accordion) return;
+
+  const items = Array.from(accordion.querySelectorAll('.collection-accordion__item'));
+
+  function closeItem(item) {
+    const trigger = item.querySelector('.collection-accordion__trigger');
+    const content = item.querySelector('[data-accordion-content]');
+    if (!trigger || !content) return;
+    item.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+    content.style.maxHeight = '0px';
+  }
+
+  function openItem(item) {
+    const trigger = item.querySelector('.collection-accordion__trigger');
+    const content = item.querySelector('[data-accordion-content]');
+    if (!trigger || !content) return;
+    item.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+    content.style.maxHeight = `${content.scrollHeight}px`;
+  }
+
+  items.forEach((item) => {
+    const trigger = item.querySelector('.collection-accordion__trigger');
+    const content = item.querySelector('[data-accordion-content]');
+    if (!trigger || !content) return;
+
+    if (item.classList.contains('is-open')) {
+      content.style.maxHeight = `${content.scrollHeight}px`;
+      trigger.setAttribute('aria-expanded', 'true');
+    } else {
+      content.style.maxHeight = '0px';
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    trigger.addEventListener('click', () => {
+      const shouldOpen = !item.classList.contains('is-open');
+      items.forEach((entry) => closeItem(entry));
+      if (shouldOpen) openItem(item);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    items.forEach((item) => {
+      if (!item.classList.contains('is-open')) return;
+      const content = item.querySelector('[data-accordion-content]');
+      if (!content) return;
+      content.style.maxHeight = `${content.scrollHeight}px`;
+    });
+  });
+}
+
 function init() {
   initNav();
   initGallery();
   initRadios();
   initCountup();
+  initCollectionAccordion();
 }
 
 document.addEventListener('DOMContentLoaded', init);

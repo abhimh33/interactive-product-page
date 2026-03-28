@@ -74,13 +74,95 @@
   <section class="section-product" aria-label="Product section">
     <div class="product-layout">
       <div class="product-gallery">
-        <img src="assets/leftvertical.png" alt="Product gallery" loading="lazy" />
+        <img src="assets/rightvertical.png" alt="Product gallery" loading="lazy" />
       </div>
 
       <div class="product-info">
-        <img src="assets/rightvertical.png" alt="Product details" loading="lazy" />
+        <img src="assets/leftvertical.png" alt="Product details" loading="lazy" />
       </div>
     </div>
   </section>
+
+  <section class="accordion-section" aria-label="Our Collection section">
+    <div class="accordion-section__left">
+      <h2 class="accordion-section__title">Our Collection</h2>
+
+      <div class="collection-accordion" data-collection-accordion>
+        <article class="collection-accordion__item is-open">
+          <button
+            class="collection-accordion__trigger"
+            type="button"
+            aria-expanded="true"
+          >
+            <span class="collection-accordion__label">Signature Scents</span>
+            <span class="collection-accordion__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="collection-accordion__content" data-accordion-content>
+            <p>
+              Explore our flagship fragrance line crafted with layered notes that evolve all day,
+              balancing fresh opening tones with warm, luxurious depth.
+            </p>
+          </div>
+        </article>
+
+        <article class="collection-accordion__item">
+          <button
+            class="collection-accordion__trigger"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="collection-accordion__label">Botanical Series</span>
+            <span class="collection-accordion__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="collection-accordion__content" data-accordion-content>
+            <p>
+              A nature-forward collection with green, floral, and herbaceous profiles inspired by
+              rare ingredients sourced from trusted growers.
+            </p>
+          </div>
+        </article>
+
+        <article class="collection-accordion__item">
+          <button
+            class="collection-accordion__trigger"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="collection-accordion__label">Evening Reserve</span>
+            <span class="collection-accordion__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="collection-accordion__content" data-accordion-content>
+            <p>
+              Rich and intense profiles designed for after-dark wear, featuring deep spice,
+              amber, and velvet wood accords.
+            </p>
+          </div>
+        </article>
+
+        <article class="collection-accordion__item">
+          <button
+            class="collection-accordion__trigger"
+            type="button"
+            aria-expanded="false"
+          >
+            <span class="collection-accordion__label">Limited Editions</span>
+            <span class="collection-accordion__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="collection-accordion__content" data-accordion-content>
+            <p>
+              Seasonal drops and artist-collab formulas produced in small batches with exclusive
+              packaging and collectible presentation.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="accordion-section__right collection-image" aria-hidden="true">
+      <img src="assets/pexels-cottonbro-4659793.png" alt="" loading="lazy" />
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
