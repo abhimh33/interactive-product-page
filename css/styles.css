@@ -50,7 +50,9 @@ img {
 .hero {
   position: relative;
   width: 100%;
+  max-width: 1456px; /* match figma width */
   height: 794px; /* match Figma frame */
+  margin: 0 auto; /* center horizontally */
   overflow: hidden;
 
   background-image: url("../assets/perfume.png");
