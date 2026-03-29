@@ -2,10 +2,13 @@
 
 /* Import Inter font with all required weights */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Import Oxanium font */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* Typography */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-oxanium: "Oxanium", sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -1386,6 +1389,7 @@ img {
   color: #ffffff;
   text-decoration: none;
   display: block;
+  font-family: var(--font-body);
 }
 
 .footer__content {
@@ -1406,6 +1410,7 @@ img {
   color: #ffffff;
   text-decoration: none;
   opacity: 0.9;
+  font-family: var(--font-oxanium);
 }
 
 .footer__row > a:hover {
@@ -1420,6 +1425,7 @@ img {
   color: #ffffff;
   text-decoration: none;
   opacity: 0.9;
+  font-family: var(--font-oxanium);
 }
 
 .footer__social-link:hover {
@@ -1438,6 +1444,7 @@ img {
   max-width: 480px;
   width: 100%;
   margin-left: auto;
+  font-family: var(--font-body);
 }
 
 .footer__newsletter-lead {
@@ -1446,6 +1453,7 @@ img {
   font-weight: 600;
   line-height: 24px;
   max-width: 100%;
+  font-family: var(--font-body);
 }
 
 .footer__form {
@@ -1469,7 +1477,7 @@ img {
   background: rgba(0, 0, 0, 0.15);
   color: #ffffff;
   font-size: 15px;
-  font-family: inherit;
+  font-family: var(--font-body);
 }
 
 .footer__input::placeholder {
@@ -1481,11 +1489,11 @@ img {
   padding: 0 24px;
   border: 0;
   border-radius: 6px;
-  background: #7a4011;
+  background: #653B09;
   color: #ffffff;
   font-size: 15px;
   font-weight: 600;
-  font-family: inherit;
+  font-family: var(--font-body);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -1500,6 +1508,7 @@ img {
   line-height: 18px;
   color: rgba(255, 255, 255, 0.85);
   max-width: 100%;
+  font-family: var(--font-body);
 }
 
 .footer__disclaimer a {
