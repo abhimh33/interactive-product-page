@@ -231,7 +231,7 @@
                       </span>
                     </label>
                     <label class="product-scent">
-                      <input type="radio" name="fragrance" value="rose" />
+                      <input type="radio" name="fragrance1" value="rose" />
                       <span class="product-scent__card">
                         <span class="product-scent__pick"><span class="product-scent__dot" aria-hidden="true"></span> Rose</span>
                         <span class="product-scent__img-wrap">
@@ -245,6 +245,7 @@
                     <label class="product-scent">
                       <input type="radio" name="fragrance2" value="original" checked />
                       <span class="product-scent__card">
+                        <span class="product-scent__badge">BEST-SELLER</span>
                         <span class="product-scent__pick"><span class="product-scent__dot" aria-hidden="true"></span> Original</span>
                         <span class="product-scent__img-wrap">
                           <img src="assets/Image_fx (14)-Photoroom 1.png" alt="" class="product-scent__img" />
@@ -271,19 +272,21 @@
                     </label>
                   </div>
                   <p class="product-sub__field-label product-sub__field-label--spaced">What's Included:</p>
-                  <div class="product-included" role="presentation">
-                    <div class="product-included__option product-included__option--readonly">
+                  <div class="product-included" role="radiogroup" aria-label="Delivery cadence">
+                    <label class="product-included__option product-included__option--active">
+                      <input type="radio" name="included2" value="monthly" checked hidden />
                       <span class="product-included__title">Every 30 Days</span>
                       <span class="product-included__img-wrap">
                         <img src="assets/Image_fx (14)-Photoroom 1.png" alt="" class="product-included__img" />
                       </span>
-                    </div>
-                    <div class="product-included__option product-included__option--readonly">
+                    </label>
+                    <label class="product-included__option">
+                      <input type="radio" name="included2" value="once" hidden />
                       <span class="product-included__title">One Time <strong class="product-included__free">(Free)</strong></span>
                       <span class="product-included__img-wrap">
                         <img src="assets/Frame 10000044421.png" alt="" class="product-included__img" />
                       </span>
-                    </div>
+                    </label>
                   </div>
                   <ul class="product-perks">
                     <li class="product-perks__item"><span class="product-perks__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-width="3" d="M4 12l5 5L20 7"/></svg></span> 2 Bottles Shipped Monthly</li>
