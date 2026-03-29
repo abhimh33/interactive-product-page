@@ -3,22 +3,22 @@
 // Gallery + bottles: paths align with Figma exports in /assets (Original / Lily / Rose frames).
 
 const PRODUCT_GALLERY_SLIDES = [
-  { src: 'assets/a206a3992f8dd3b83e58b96d68af3ba37d448aff.png', alt: 'GTG Original — grey background' },
-  { src: 'assets/Group%201000004093.png', alt: 'GTG fragrance lifestyle' },
-  { src: 'assets/Group%201000004283.png', alt: 'GTG perfumes lifestyle' },
-  { src: 'assets/pexels-cottonbro-4659793.png', alt: 'GTG lifestyle' },
+  { src: 'assets/pexels-pixabay-264870 1.png', alt: 'GTG Original — grey background' },
+  { src: 'assets/pexels-rethaferguson-3059609 2.png', alt: 'GTG fragrance lifestyle' },
+  { src: 'assets/pexels-valeriya-1961782 1.png', alt: 'GTG perfumes lifestyle' },
+  { src: 'assets/pexels-rethaferguson-3059609 2.png', alt: 'GTG lifestyle' },
 ];
 
 /** Eight thumbnails (4×2), each mapped to a slide index 0–3 — all from /assets */
 const PRODUCT_GALLERY_THUMBS = [
-  { src: 'assets/a206a3992f8dd3b83e58b96d68af3ba37d448aff.png', slide: 0 },
-  { src: 'assets/Group%201000003958.png', slide: 0 },
-  { src: 'assets/Group%201000004093.png', slide: 1 },
-  { src: 'assets/Group%201000004012.png', slide: 1 },
-  { src: 'assets/Group%201000004283.png', slide: 2 },
-  { src: 'assets/Group%201000003968.png', slide: 2 },
-  { src: 'assets/pexels-cottonbro-4659793.png', slide: 3 },
-  { src: 'assets/Group%201000003967.png', slide: 3 },
+  { src: 'assets/pexels-pixabay-264870 1.png', slide: 0 },
+  { src: 'assets/pexels-pixabay-264950 1.png', slide: 0 },
+  { src: 'assets/pexels-rethaferguson-3059609 2.png', slide: 1 },
+  { src: 'assets/pexels-valeriya-1961782 1.png', slide: 1 },
+  { src: 'assets/pexels-pixabay-264870 1.png', slide: 2 },
+  { src: 'assets/pexels-pixabay-264950 1.png', slide: 2 },
+  { src: 'assets/pexels-rethaferguson-3059609 2.png', slide: 3 },
+  { src: 'assets/pexels-valeriya-1961782 1.png', slide: 3 },
 ];
 
 function initNav() {
