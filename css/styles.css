@@ -1433,10 +1433,11 @@ img {
 .footer__newsletter {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: flex-end;
+  text-align: right;
   max-width: 480px;
   width: 100%;
+  margin-left: auto;
 }
 
 .footer__newsletter-lead {
@@ -1455,6 +1456,7 @@ img {
   margin-bottom: 16px;
   width: 100%;
   max-width: 100%;
+  justify-content: flex-end;
 }
 
 .footer__input {
