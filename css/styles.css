@@ -196,7 +196,11 @@ img {
   font-weight: 800;
   font-size: 36px;
   line-height: 36px;
-  color: var(--color-green);
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   font-family: var(--font-body);
 }
