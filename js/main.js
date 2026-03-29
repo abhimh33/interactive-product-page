@@ -149,19 +149,21 @@ function initProductForm() {
 function initIncludedPickers() {
   const root = document.querySelector('[data-product-form]');
   if (!root) return;
-  const group = root.querySelector('.product-included[role="radiogroup"]');
-  if (!group) return;
+  const groups = root.querySelectorAll('.product-included[role="radiogroup"]');
+  if (!groups.length) return;
 
-  function sync() {
-    group.querySelectorAll('.product-included__option').forEach((opt) => {
-      const input = opt.querySelector('input[type="radio"]');
-      const on = input && input.checked;
-      opt.classList.toggle('product-included__option--active', Boolean(on));
-    });
-  }
+  groups.forEach((group) => {
+    function sync() {
+      group.querySelectorAll('.product-included__option').forEach((opt) => {
+        const input = opt.querySelector('input[type="radio"]');
+        const on = input && input.checked;
+        opt.classList.toggle('product-included__option--active', Boolean(on));
+      });
+    }
 
-  group.addEventListener('change', sync);
-  sync();
+    group.addEventListener('change', sync);
+    sync();
+  });
 }
 
 function initCountup() {
