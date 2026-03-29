@@ -1514,9 +1514,9 @@ img {
   margin: 0;
   font-size: 12px;
   line-height: 18px;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   max-width: 100%;
-  font-family: var(--font-body);
+  font-family: var(--font-oxanium);
 }
 
 .footer__disclaimer a {
