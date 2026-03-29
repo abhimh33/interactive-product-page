@@ -1071,8 +1071,7 @@ img {
   min-height: 200px;
   box-sizing: border-box;
   /* Solid bar only: avoid banner PNG (often mirrors layout text) + cover scaling “echoes” on ultra-wide */
-  background-color: var(--color-green);
-  background-image: none;
+  background: linear-gradient(180deg, #032E15 0%, #016630 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1104,18 +1103,22 @@ img {
   font-size: 52px;
   font-weight: 700;
   line-height: 1;
+  font-family: var(--font-body);
+  color: #ffffff;
 }
 
 .stats-band__label {
   margin: 0;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 22px;
   max-width: 240px;
   margin-left: auto;
   margin-right: auto;
   overflow-wrap: break-word;
   hyphens: auto;
+  font-family: var(--font-body);
+  color: #ffffff;
 }
 
 /* ----- Comparison ----- */
