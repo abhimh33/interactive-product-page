@@ -1362,15 +1362,15 @@ img {
 }
 
 .layout-container--footer {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 60px;
 }
 
 .footer__grid {
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: 80px;
+  column-gap: 120px;
   align-items: start;
 }
 
@@ -1396,8 +1396,8 @@ img {
 
 .footer__row {
   display: grid;
-  grid-template-columns: 100px 100px 1fr;
-  gap: 16px;
+  grid-template-columns: 120px 120px 1fr;
+  gap: 20px;
   align-items: center;
 }
 
@@ -1586,7 +1586,7 @@ button:focus-visible,
   }
 
   .layout-container--footer {
-    padding: 0 24px;
+    padding: 0 40px;
   }
 }
 
