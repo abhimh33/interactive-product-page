@@ -958,7 +958,8 @@ img {
   line-height: 39px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--color-green-heading);
+  color: #032E15;
+  font-family: var(--font-oxanium);
 }
 
 .collection-accordion {
@@ -1141,8 +1142,8 @@ img {
   font-size: 32px;
   line-height: 1.15;
   font-weight: 700;
-  font-family: Georgia, serif;
-  color: #064e22;
+  font-family: var(--font-body);
+  color: #032E15;
 }
 
 .compare__table-wrap {
@@ -1181,6 +1182,8 @@ img {
 
 .compare-table__label--corner {
   vertical-align: bottom;
+  color: #322D2D;
+  font-family: var(--font-body);
 }
 
 .compare-table__brand {
@@ -1211,13 +1214,15 @@ img {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #999999;
+  color: #666666;
+  font-family: var(--font-body);
 }
 
 .compare-table__brand-name--gtg {
   font-size: 16px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #032E15;
+  font-family: var(--font-body);
 }
 
 .compare-table__brand--featured {
@@ -1239,8 +1244,9 @@ img {
   text-align: left;
   font-size: 16px;
   font-weight: 700;
-  color: #1a1a1a;
-  background: #ffffff;
+  color: #322D2D;
+  background: #666666;
+  font-family: var(--font-oxanium);
 }
 
 .compare-table__cell {
@@ -1257,6 +1263,7 @@ img {
 .compare-table__text {
   font-size: 17px;
   font-weight: 600;
+  font-family: var(--font-body);
 }
 
 .compare-table__text--strong {
@@ -1278,7 +1285,7 @@ img {
 }
 
 .icon-badge--ok {
-  background: #064e22;
+  background: #032E15;
   position: relative;
 }
 
@@ -1347,6 +1354,7 @@ img {
   line-height: 24px;
   color: #ffffff;
   background: linear-gradient(180deg, #032E15 0%, #016630 100%);
+  font-family: var(--font-body);
 }
 
 .btn--compare:hover {
