@@ -1343,7 +1343,7 @@ img {
   font-weight: 700;
   line-height: 24px;
   color: #ffffff;
-  background: var(--color-green);
+  background: linear-gradient(180deg, #032E15 0%, #016630 100%);
 }
 
 .btn--compare:hover {
