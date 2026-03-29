@@ -2,6 +2,18 @@
 .vscode/
 .kiro/
 
+# Dependencies
+node_modules/
+
+# Testing
+test/
+vitest.config.js
+
+# Temporary files
+test.css
+test.html
+css/styles_temp.css
+
 # OS noise
 .DS_Store
 Thumbs.db
